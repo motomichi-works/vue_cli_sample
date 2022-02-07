@@ -13,8 +13,5 @@ export default defineComponent({
   components: {
     HogeContainer,
   },
-  setup() {
-    console.log("hoge");
-  },
 });
 </script>
