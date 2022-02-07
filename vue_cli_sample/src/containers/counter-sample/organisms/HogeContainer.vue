@@ -3,7 +3,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
+import useCount from "../../../hooks/useCount";
 import Hoge from "../../../components/counter-sample/organisms/Hoge.vue";
 
 export default defineComponent({
@@ -11,10 +12,7 @@ export default defineComponent({
     Hoge,
   },
   setup() {
-    const count = ref(0);
-    const setCount = () => {
-      count.value = count.value + 1;
-    };
+    const [count, setCount] = useCount();
 
     return {
       count,
