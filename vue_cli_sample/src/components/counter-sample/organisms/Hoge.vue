@@ -1,16 +1,36 @@
 <template>
   <div class="Hoge">
-    <div>count: 0000</div>
-    <button>+1</button>
+    <div>computedCount: {{ computedCount }}</div>
+    <div>count: {{ count }}</div>
+    <button @click="handleClick">+1</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
-  setup() {
-    console.log("hoge");
+  props: {
+    count: {
+      type: Number,
+      required: true,
+    },
+    setCount: {
+      type: Function,
+      required: true,
+    },
+  },
+  setup(props) {
+    const computedCount = computed(() => props.count);
+
+    const handleClick = () => {
+      props.setCount();
+    };
+
+    return {
+      computedCount,
+      handleClick,
+    };
   },
 });
 </script>
