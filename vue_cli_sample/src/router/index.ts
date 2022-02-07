@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
+import CounterSample from "../views/CounterSample.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/counter_sample",
+    name: "CounterSample",
+    component: CounterSample,
   },
   {
     path: "/about",
